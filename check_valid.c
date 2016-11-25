@@ -6,7 +6,7 @@
 /*   By: kbagot <kbagot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/25 13:14:09 by kbagot            #+#    #+#             */
-/*   Updated: 2016/11/25 18:47:19 by kbagot           ###   ########.fr       */
+/*   Updated: 2016/11/25 19:58:54 by kbagot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <unistd.h>
 #include <stdio.h>
 
-int		ft_check_valid(int fd)
+int		ft_valid(int fd)
 {
 	char	buff[21];
 	int		hash;
@@ -41,7 +41,7 @@ int		ft_check_valid(int fd)
 	return (1);
 }
 
-int		ft_check_tminos(int fd)
+int		ft_tminos(int fd)
 {
 	int		i;
 	int		save;
@@ -69,7 +69,7 @@ int		ft_check_tminos(int fd)
 	return (1);
 }
 
-int		ft_check_tminosbis(int fd)
+int		ft_tminosbis(int fd)
 {
 	int		i;
 	char	buff[21];
@@ -98,26 +98,21 @@ int		ft_check_tminosbis(int fd)
 	return (1);
 }
 
-int		main(int argc, char **argv)
+int		ft_check(char **argv)
 {
 	int		fd;
 	int		i;
 	char	buff[600];
 
 	i = 0;
-	argc = 1;
-	fd = open(argv[argc], O_RDONLY);
+	fd = open(argv[1], O_RDONLY);
 	while (read(fd, buff, 600))
 	while (buff[i] != '\0')
 		i++;
 	if (buff[i - 1] != '\n' || (buff[i - 2] != '#' && buff[i - 2] != '.'))
 		return (0);
-	fd = open(argv[argc], O_RDONLY);
-	printf("%d\n", ft_check_valid(fd));
-//	fd = open(argv[argc], O_RDONLY);
-	printf("%d\n", ft_check_tminos(fd));
-//	fd = open(argv[argc], O_RDONLY);
-	printf("%d\n", ft_check_tminosbis(fd));
+	if (ft_valid(open(argv[1], O_RDONLY)) == 0 || ft_tminos(open(argv[1], O_RDONLY)) == 0 || ft_tminosbis(open(argv[1], O_RDONLY)) == 0)
+		return (0);
 	close(fd);
-	return (0);
+	return (1);
 }
