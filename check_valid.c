@@ -35,7 +35,7 @@ int		ft_valid(int fd)
 				hash++;
 			i++;
 		}
-		if (hash != 4 || (buff[20] != '\n' && buff[20] != 0))
+		if (hash != 4 || (buff[20] != '\0' && buff[20] != '\n'))
 			return (0);
 	}
 	return (1);
@@ -106,12 +106,15 @@ int		ft_check(char **argv)
 
 	i = 0;
 	fd = open(argv[1], O_RDONLY);
-	while (read(fd, buff, 600))
+	read(fd, buff, 600);
 	while (buff[i] != '\0')
 		i++;
-	if (buff[i - 1] != '\n' || (buff[i - 2] != '#' && buff[i - 2] != '.'))
+	printf("%c\n", buff[i - 2]);
+	if (buff[i - 2] == '\n')
 		return (0);
-	if (ft_valid(open(argv[1], O_RDONLY)) == 0 || ft_tminos(open(argv[1], O_RDONLY)) == 0 || ft_tminosbis(open(argv[1], O_RDONLY)) == 0)
+	if (ft_valid(open(argv[1], O_RDONLY)) == 0 ||
+ft_tminos(open(argv[1], O_RDONLY)) == 0
+|| ft_tminosbis(open(argv[1], O_RDONLY)) == 0)
 		return (0);
 	close(fd);
 	return (1);
