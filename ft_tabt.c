@@ -1,23 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sqrt.c                                          :+:      :+:    :+:   */
+/*   ft_tabt.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kbagot <kbagot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/29 14:57:45 by kbagot            #+#    #+#             */
-/*   Updated: 2016/11/29 18:50:45 by kbagot           ###   ########.fr       */
+/*   Created: 2016/11/29 19:22:10 by kbagot            #+#    #+#             */
+/*   Updated: 2016/11/29 20:13:01 by kbagot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "fillit.h"
+
 int		ft_tabt(t_list *alist)
 {
-	int i;
-	int nb;
+	int		i;
+	int		nb;
+	t_list	save;
 
 	nb = 0;
+	save = alist;
 	while (alist)
+	{
 		nb++;
+		alist = alist->next;
+	}
+	alist = save;
 	i = 0;
 	if (nb > 1)
 	{

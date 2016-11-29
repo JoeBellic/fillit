@@ -6,13 +6,11 @@
 /*   By: kbagot <kbagot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/25 13:14:09 by kbagot            #+#    #+#             */
-/*   Updated: 2016/11/29 18:26:39 by kbagot           ###   ########.fr       */
+/*   Updated: 2016/11/29 18:56:26 by kbagot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <fcntl.h>
-#include <unistd.h>
-#include <stdio.h>
+#include "fillit.h"
 
 int		ft_valid(int fd)
 {
