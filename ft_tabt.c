@@ -6,7 +6,7 @@
 /*   By: kbagot <kbagot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/29 19:22:10 by kbagot            #+#    #+#             */
-/*   Updated: 2016/11/29 20:13:01 by kbagot           ###   ########.fr       */
+/*   Updated: 2016/11/30 12:11:23 by kbagot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int		ft_tabt(t_list *alist)
 {
 	int		i;
 	int		nb;
-	t_list	save;
+	t_list	*save;
 
 	nb = 0;
 	save = alist;
