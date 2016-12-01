@@ -6,7 +6,7 @@
 /*   By: kbagot <kbagot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/25 18:41:14 by kbagot            #+#    #+#             */
-/*   Updated: 2016/11/30 18:44:37 by kbagot           ###   ########.fr       */
+/*   Updated: 2016/12/01 21:09:35 by kbagot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ int		main(int argc, char **argv)
 {
 	int		result;
 	t_list	*listt;
+	char	*map;
 
 	result = ft_check(argv);
 	if (result == 0 || argc != 2)
@@ -24,7 +25,13 @@ int		main(int argc, char **argv)
 		return (0);
 	}
 	listt = ft_stockt(argv);
-	result = ft_tabt(listt);
-	ft_fillmap(listt, ft_makemap(result), result);
+	result = 5;
+	map = ft_makemap(result);
+	while (listt)
+	{
+		map = ft_fillmap(listt, map, result);
+		listt = listt->next;
+	}
+	printf("%s\n", map);
 	return (0);
 }
