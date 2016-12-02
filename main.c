@@ -6,7 +6,7 @@
 /*   By: kbagot <kbagot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/25 18:41:14 by kbagot            #+#    #+#             */
-/*   Updated: 2016/12/01 21:09:35 by kbagot           ###   ########.fr       */
+/*   Updated: 2016/12/02 14:21:22 by kbagot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int		main(int argc, char **argv)
 		return (0);
 	}
 	listt = ft_stockt(argv);
-	result = 5;
+	result = ft_tabt(listt);
 	map = ft_makemap(result);
 	while (listt)
 	{

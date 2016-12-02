@@ -6,7 +6,7 @@
 /*   By: kbagot <kbagot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/25 13:14:09 by kbagot            #+#    #+#             */
-/*   Updated: 2016/11/29 18:56:26 by kbagot           ###   ########.fr       */
+/*   Updated: 2016/12/02 13:55:38 by kbagot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,17 +99,21 @@ int		ft_tminosbis(int fd)
 int		ft_checkend(int fd)
 {
 	int		i;
+	int		ncount;
 	char	buff[600];
 
 	i = 0;
+	ncount = 1;
 	read(fd, buff, 600);
 	while (buff[i])
 	{
+		if (buff[i] == '\n')
+			ncount++;
 		if ((i + 1) % 21 == 0 && (buff[i] != '\0' && buff[i] != '\n'))
 			return (0);
 		i++;
 	}
-	if (buff[i - 2] == '\n')
+	if (buff[i - 2] == '\n' || ncount % 5 != 0)
 		return (0);
 	return (1);
 }
