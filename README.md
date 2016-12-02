@@ -1,3 +1,3 @@
 fillit
 
-- Resolveur && delete tminos fct
+TEst a effectuer avant resolution.

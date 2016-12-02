@@ -6,7 +6,7 @@
 /*   By: kbagot <kbagot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/29 20:02:55 by kbagot            #+#    #+#             */
-/*   Updated: 2016/12/02 14:20:20 by kbagot           ###   ########.fr       */
+/*   Updated: 2016/12/02 21:13:41 by kbagot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,17 @@
 int		ft_pointc(char *str, int mlen)
 {
 	int	point;
+	int	save;
 
 	point = 0;
 	while (str[point] == '.')
-		point++;
-	if (point == 3 || point == 1)
+		point++;	
+	save = point;
+	if (save == 3)
 		point = mlen - 1;
-	if (point == 2)
+	if (save == 1)
+		point = mlen - 3;
+	if (save == 2)
 		point = mlen - 2;
 	return (point);
 }
@@ -49,7 +53,7 @@ int		ft_fillmapcheck(t_list *tlist, char *map, int mlen, int i)
 			return (0);
 		if (tminos[j] == '.')
 		{
-			i = (i) + ft_pointc(&tminos[j], mlen);
+			i = i + ft_pointc(&tminos[j], mlen);
 			j = ft_skipp(tminos, j);
 		}
 		i++;
@@ -73,11 +77,13 @@ char	*ft_fillmap(t_list *tlist, char *map, int mlen)
 		if ((ft_fillmapcheck(tlist, map, mlen, i)) == 1)
 			while (tminos[j])
 			{
+				if (map[i] == '\n' && tminos[j] != '.')
+					i++;
 				if (tminos[j] != '.')
 					map[i] = tminos[j];
 				if (tminos[j] == '.')
 				{
-					i = (i) + ft_pointc(&tminos[j], mlen);
+					i = i + ft_pointc(&tminos[j], mlen);
 					j = ft_skipp(tminos, j);
 				}
 				i++;
@@ -85,6 +91,5 @@ char	*ft_fillmap(t_list *tlist, char *map, int mlen)
 			}
 		i++;
 	}
-	printf("%s\n", map);
 	return (map);
 }

@@ -6,7 +6,7 @@
 /*   By: kbagot <kbagot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/25 13:14:09 by kbagot            #+#    #+#             */
-/*   Updated: 2016/12/02 13:55:38 by kbagot           ###   ########.fr       */
+/*   Updated: 2016/12/02 16:15:36 by kbagot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,11 +100,11 @@ int		ft_checkend(int fd)
 {
 	int		i;
 	int		ncount;
-	char	buff[600];
+	char	buff[800];
 
 	i = 0;
 	ncount = 1;
-	read(fd, buff, 600);
+	read(fd, buff, 800);
 	while (buff[i])
 	{
 		if (buff[i] == '\n')

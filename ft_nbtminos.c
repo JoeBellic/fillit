@@ -1,37 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_nbtminos.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kbagot <kbagot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/25 18:41:14 by kbagot            #+#    #+#             */
-/*   Updated: 2016/12/02 20:52:22 by kbagot           ###   ########.fr       */
+/*   Created: 2016/12/02 15:33:16 by kbagot            #+#    #+#             */
+/*   Updated: 2016/12/02 15:59:17 by kbagot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int		main(int argc, char **argv)
+int		ft_nbtminos(t_list *alist)
 {
-	int		result;
-	t_list	*listt;
-	char	*map;
+	int		nb;
+	t_list	*save;
 
-	result = ft_check(argv);
-	listt = ft_stockt(argv);
-	if (result == 0 || argc != 2 || ft_nbtminos(listt) > 26)
+	nb = 0;
+	save = alist;
+	while (alist)
 	{
-		write(1, "error\n", 6);
-		return (0);
+		nb++;
+		alist = alist->next;
 	}
-	result = 3;
-	map = ft_makemap(result);
-	while (listt)
-	{
-		map = ft_fillmap(listt, map, result);
-		listt = listt->next;
-	}
-	printf("%s", map);
-	return (0);
+	alist = save;
+	printf("%d\n", nb);
+	return (nb);
 }
