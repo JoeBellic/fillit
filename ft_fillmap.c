@@ -6,7 +6,7 @@
 /*   By: kbagot <kbagot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/29 20:02:55 by kbagot            #+#    #+#             */
-/*   Updated: 2016/12/02 21:13:41 by kbagot           ###   ########.fr       */
+/*   Updated: 2016/12/05 17:35:40 by kbagot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,34 +62,29 @@ int		ft_fillmapcheck(t_list *tlist, char *map, int mlen, int i)
 	return (1);
 }
 
-char	*ft_fillmap(t_list *tlist, char *map, int mlen)
+int		ft_fillmap(t_list *tlist, char *map, int mlen, int i)
 {
-	int		i;
 	int		j;
 	char	*tminos;
 
-	i = 0;
 	j = 0;
 	tminos = tlist->tab;
-	printf("%s\n", tminos);
-	while (map[i])
-	{
-		if ((ft_fillmapcheck(tlist, map, mlen, i)) == 1)
-			while (tminos[j])
-			{
-				if (map[i] == '\n' && tminos[j] != '.')
-					i++;
-				if (tminos[j] != '.')
-					map[i] = tminos[j];
-				if (tminos[j] == '.')
-				{
-					i = i + ft_pointc(&tminos[j], mlen);
-					j = ft_skipp(tminos, j);
-				}
+	if ((ft_fillmapcheck(tlist, map, mlen, i)) == 1)
+		while (tminos[j])
+		{
+			if (map[i] == '\n' && tminos[j] != '.')
 				i++;
-				j++;
+			if (tminos[j] != '.')
+				map[i] = tminos[j];
+			if (tminos[j] == '.')
+			{
+				i = i + ft_pointc(&tminos[j], mlen);
+				j = ft_skipp(tminos, j);
 			}
-		i++;
-	}
-	return (map);
+			i++;
+			j++;
+		}
+	else
+		return (0);
+	return (1);
 }

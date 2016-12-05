@@ -1,34 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_makemap.c                                       :+:      :+:    :+:   */
+/*   ft_printmap.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kbagot <kbagot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/29 18:28:42 by kbagot            #+#    #+#             */
-/*   Updated: 2016/12/05 20:48:01 by kbagot           ###   ########.fr       */
+/*   Created: 2016/12/05 16:51:41 by kbagot            #+#    #+#             */
+/*   Updated: 2016/12/05 19:19:07 by kbagot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-char	*ft_makemap(int tminos)
+static void		ft_putchar(char c)
 {
-	char	*map;
-	int		len;
-	int 	i;
+	write(1, &c, 1);
+}
+
+void			ft_printmap(char *map)
+{
+	int i;
 
 	i = 0;
-	len = (tminos * tminos) + tminos + 1;
-	map = (char *)malloc(sizeof(char) * len);
-	while (len > 1)
+	while (map[i])
 	{
-		map[i] = '.';
-		if (((i + 1) % (tminos + 1)) == 0)
-			map[i] = '\n';
-		len--;
+		ft_putchar(map[i]);
 		i++;
 	}
-	map[i] = '\0';
-	return (map);
 }

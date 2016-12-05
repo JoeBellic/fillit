@@ -6,7 +6,7 @@
 /*   By: nbeny <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/23 13:08:19 by nbeny             #+#    #+#             */
-/*   Updated: 2016/12/02 15:36:53 by kbagot           ###   ########.fr       */
+/*   Updated: 2016/12/05 18:27:35 by kbagot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,10 @@ int				main(int argc, char **argv);
 t_list			*ft_stockt(char **av);
 char			*ft_makemap(int tminos);
 int				ft_tabt(t_list *alist);
-char			*ft_fillmap(t_list *tlist, char *map, int mlen);
+int				ft_fillmap(t_list *tlist, char *map, int mlen, int i);
 int				ft_nbtminos(t_list *alist);
+void			ft_resolver(t_list *list, char *map, int mlen, int nbt, int i);
+void			ft_printmap(char *map);
+void			ft_deletetetri(t_list *list, char *map, int mlen, int nbt, int i);
 
 #endif

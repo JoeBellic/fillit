@@ -1,34 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_makemap.c                                       :+:      :+:    :+:   */
+/*   ft_resolver.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kbagot <kbagot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/29 18:28:42 by kbagot            #+#    #+#             */
-/*   Updated: 2016/12/05 20:48:01 by kbagot           ###   ########.fr       */
+/*   Created: 2016/12/05 12:10:10 by kbagot            #+#    #+#             */
+/*   Updated: 2016/12/05 20:54:03 by kbagot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-char	*ft_makemap(int tminos)
+void		ft_resolver(t_list *list, char *map, int mlen, int nbt, int i)
 {
-	char	*map;
-	int		len;
-	int 	i;
-
-	i = 0;
-	len = (tminos * tminos) + tminos + 1;
-	map = (char *)malloc(sizeof(char) * len);
-	while (len > 1)
+	while (map[++i])
 	{
-		map[i] = '.';
-		if (((i + 1) % (tminos + 1)) == 0)
-			map[i] = '\n';
-		len--;
-		i++;
+		if (ft_fillmap(list, map, mlen, i) == 1)
+		{
+			if (((list->tab[0] - 'A') + 1) < nbt)
+				ft_resolver(list->next, map , mlen, nbt , -1);
+			else
+				ft_printmap(map);
+			ft_deletetetri(list, map, mlen, nbt, i);
+		}
 	}
-	map[i] = '\0';
-	return (map);
 }

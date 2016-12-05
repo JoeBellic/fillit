@@ -6,7 +6,7 @@
 /*   By: kbagot <kbagot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/02 15:33:16 by kbagot            #+#    #+#             */
-/*   Updated: 2016/12/02 15:59:17 by kbagot           ###   ########.fr       */
+/*   Updated: 2016/12/05 16:38:54 by kbagot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,5 @@ int		ft_nbtminos(t_list *alist)
 		alist = alist->next;
 	}
 	alist = save;
-	printf("%d\n", nb);
 	return (nb);
 }
