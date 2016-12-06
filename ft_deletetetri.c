@@ -6,13 +6,13 @@
 /*   By: kbagot <kbagot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/05 17:04:12 by kbagot            #+#    #+#             */
-/*   Updated: 2016/12/05 20:54:05 by kbagot           ###   ########.fr       */
+/*   Updated: 2016/12/06 16:14:31 by kbagot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-void	ft_deletetetri(t_list *list, char *map, int mlen, int nbt, int i)
+void	ft_deletetetri(t_list *list, char *map)
 {
 	int		j;
 	int		save;
@@ -21,6 +21,8 @@ void	ft_deletetetri(t_list *list, char *map, int mlen, int nbt, int i)
 	j = 0;
 	save = j;
 	l = list->tab[0];
+	if (list->next)
+	{
 	if (list->tab[0] != 'A')
 		l = list->tab[0] - 1;
 	while (map[j])
@@ -31,6 +33,5 @@ void	ft_deletetetri(t_list *list, char *map, int mlen, int nbt, int i)
 			map[j] = '.';
 		j++;
 	}
-	i = save;
-	ft_resolver(list, map, mlen, nbt, i);	
+	}
 }
