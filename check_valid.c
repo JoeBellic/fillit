@@ -6,13 +6,13 @@
 /*   By: kbagot <kbagot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/25 13:14:09 by kbagot            #+#    #+#             */
-/*   Updated: 2016/12/02 16:15:36 by kbagot           ###   ########.fr       */
+/*   Updated: 2016/12/06 19:58:38 by kbagot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int		ft_valid(int fd)
+static int		ft_valid(int fd)
 {
 	char	buff[21];
 	int		hash;
@@ -39,7 +39,7 @@ int		ft_valid(int fd)
 	return (1);
 }
 
-int		ft_tminos(int fd)
+static int		ft_tminos(int fd)
 {
 	int		i;
 	int		save;
@@ -67,7 +67,7 @@ int		ft_tminos(int fd)
 	return (1);
 }
 
-int		ft_tminosbis(int fd)
+static int		ft_tminosbis(int fd)
 {
 	int		i;
 	char	buff[21];
@@ -96,7 +96,7 @@ int		ft_tminosbis(int fd)
 	return (1);
 }
 
-int		ft_checkend(int fd)
+static int		ft_checkend(int fd)
 {
 	int		i;
 	int		ncount;
@@ -118,7 +118,7 @@ int		ft_checkend(int fd)
 	return (1);
 }
 
-int		ft_check(char **argv)
+int				ft_check(char **argv)
 {
 	if (ft_valid(open(argv[1], O_RDONLY)) == 0 ||
 ft_tminos(open(argv[1], O_RDONLY)) == 0 ||

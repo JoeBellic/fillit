@@ -6,20 +6,20 @@
 /*   By: kbagot <kbagot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/29 20:02:55 by kbagot            #+#    #+#             */
-/*   Updated: 2016/12/05 17:35:40 by kbagot           ###   ########.fr       */
+/*   Updated: 2016/12/06 20:06:44 by kbagot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int		ft_pointc(char *str, int mlen)
+static int		ft_pointc(char *str, int mlen)
 {
 	int	point;
 	int	save;
 
 	point = 0;
 	while (str[point] == '.')
-		point++;	
+		point++;
 	save = point;
 	if (save == 3)
 		point = mlen - 1;
@@ -30,7 +30,7 @@ int		ft_pointc(char *str, int mlen)
 	return (point);
 }
 
-int		ft_skipp(char *str, int j)
+static int		ft_skipp(char *str, int j)
 {
 	while (str[j] == '.')
 		j++;
@@ -38,7 +38,7 @@ int		ft_skipp(char *str, int j)
 	return (j);
 }
 
-int		ft_fillmapcheck(t_list *tlist, char *map, int mlen, int i)
+static int		ft_fillmapcheck(t_list *tlist, char *map, int mlen, int i)
 {
 	int		j;
 	int		jump;
@@ -62,7 +62,7 @@ int		ft_fillmapcheck(t_list *tlist, char *map, int mlen, int i)
 	return (1);
 }
 
-int		ft_fillmap(t_list *tlist, char *map, int mlen, int i)
+int				ft_fillmap(t_list *tlist, char *map, int mlen, int i)
 {
 	int		j;
 	char	*tminos;

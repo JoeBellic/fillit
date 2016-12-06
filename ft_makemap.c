@@ -6,7 +6,7 @@
 /*   By: kbagot <kbagot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/29 18:28:42 by kbagot            #+#    #+#             */
-/*   Updated: 2016/12/05 20:48:01 by kbagot           ###   ########.fr       */
+/*   Updated: 2016/12/06 19:54:38 by kbagot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ char	*ft_makemap(int tminos)
 {
 	char	*map;
 	int		len;
-	int 	i;
+	int		i;
 
 	i = 0;
 	len = (tminos * tminos) + tminos + 1;

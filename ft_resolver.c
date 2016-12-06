@@ -6,23 +6,45 @@
 /*   By: kbagot <kbagot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/05 12:10:10 by kbagot            #+#    #+#             */
-/*   Updated: 2016/12/06 16:11:02 by kbagot           ###   ########.fr       */
+/*   Updated: 2016/12/06 20:28:42 by kbagot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-void		ft_resolver(t_list *list, char *map, int mlen, int nbt, int i)
+static void		ft_resolver(t_list *list, char *map, int mlen)
 {
-	while (++i < ((mlen * mlen) + mlen + 1))
+	int	i;
+
+	i = -1;
+	while (map[++i])
 	{
 		if (ft_fillmap(list, map, mlen, i) == 1)
 		{
-			if (((list->tab[0] - 'A') + 1) < nbt)
-				ft_resolver(list->next, map , mlen, nbt , -1);
+			if (list->next)
+				ft_resolver(list->next, map, mlen);
 			else
 				ft_printmap(map);
 			ft_deletetetri(list, map);
 		}
+	}
+}
+
+void			ft_resolv(t_list *list, int result)
+{
+	char	buff;
+	int		fd;
+	char	*map;
+
+	while (result != -1)
+	{
+		map = ft_makemap(result);
+		ft_resolver(list, map, result);
+		free(map);
+		result++;
+		fd = open(0, O_RDONLY);
+		if (read(fd, &buff, 1) != 0)
+			result = -1;
+		close(fd);
 	}
 }
